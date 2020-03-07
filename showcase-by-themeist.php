@@ -54,6 +54,9 @@ class Themeist_Showcase {
 
 		/* Load post types. */
 		require_once( THEMIST_SHOWCASE_DIR . 'register-post-types.php' );
+
+		/* Custom Shortcode for IRT Plugin */
+		require_once( THEMIST_SHOWCASE_DIR . 'register-shortcodes.php' );
 	}
 
 	/**
