@@ -1,10 +1,6 @@
 <?php
 /**
  * Showcase Custom Post Type
- *
- * @name	 Showcase register
- * @package  DOT CORE
- * @version  1.0
  * REFER TO http://wp.tutsplus.com/tutorials/plugins/a-guide-to-wordpress-custom-post-types-taxonomies-admin-columns-filters-and-archives/
  */
 
@@ -35,12 +31,19 @@ function themeist_register_showcase_post_types() {
 	);
 
 
-    $args = array(
-        'labels' => $labels,
-        'public' => true,
-        'show_ui' => true,
-        'capability_type' => 'post',
-        'hierarchical' => false,
+	$args = array(
+		'labels' => $labels,
+		'public' => true,
+		'capability_type' => 'post',
+		'hierarchical' => false,
+		'show_ui'             => true,
+		'show_in_menu'        => true,
+		'show_in_nav_menus'   => true,
+		'show_in_admin_bar'   => true,
+		'menu_position'       => 5,
+		'menu_icon'           => 'dashicons-heart',
+		'can_export'          => true,
+		'has_archive'         => true,
 
 		//$dot_options = get_option('');
 
@@ -51,22 +54,22 @@ function themeist_register_showcase_post_types() {
 				'with_front' => 		false,
 				'feeds' =>		true,
 			),
-        	//'rewrite' => array( 'slug' => $dot_options['showcase_slug'] ), // Permalinks format
-        //}
-        //else {
+			//'rewrite' => array( 'slug' => $dot_options['showcase_slug'] ), // Permalinks format
+		//}
+		//else {
 
-        //	'rewrite' => array( 'slug' => 'portfolio' ), // Permalinks format
+		//	'rewrite' => array( 'slug' => 'portfolio' ), // Permalinks format
 		//  https://github.com/Automattic/jetpack/issues/8
 		// add_action('init', 'my_custom_init');
 		// function my_custom_init() {
 		//     add_post_type_support( 'your-custom-post-type-name', 'publicize' );
 		// }
-        //}
-        'supports' => array('title', 'thumbnail', 'publicize'),
-        'taxonomies' => array( 'flat_gallery_type')
-       );
+		//}
+		'supports' => array('title', 'thumbnail', 'publicize'),
+		'taxonomies' => array( 'flat_gallery_type')
+	   );
 
-    register_post_type( 'showcase' , $args );
+	register_post_type( 'showcase' , $args );
 }
 
 
@@ -165,20 +168,4 @@ function showcase_columns( $column, $post_id ) {
 	}
 }
 
-
-
-/**
- * Displays the custom post type icon in the dashboard
- */
-
-function showcase_icon() { ?>
-	    <style type="text/css" media="screen">
-	        #menu-posts-showcase .wp-menu-image {
-	            background: url(<?php echo get_template_directory_uri() . '/framework/images/admin/portfolio-icon.png'; ?>) no-repeat 6px 6px !important;
-	        }
-			#menu-posts-showcase:hover .wp-menu-image, #menu-posts-showcase.wp-has-current-submenu .wp-menu-image {
-	            background-position:6px -16px !important;
-	        }
-			#icon-edit.icon32-posts-showcase {background: url(<?php echo get_template_directory_uri() . '/framework/images/admin/portfolio-32x32.png'; ?>) no-repeat;}
-	    </style>
-	<?php }
+?>
