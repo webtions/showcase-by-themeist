@@ -3,7 +3,7 @@
  * Plugin Name:       Showcase by Themeist
  * Plugin URI:        https://github.com/webtions/showcase-by-themeist.git
  * Description:       Adds Showcase post type for theme developers to use in their custom projects
- * Version:           0.1.1
+ * Version:           0.1.2
  * Author:            Harish Chouhan, Themeist
  * Author URI:        https://themeist.com/
  * Author Email:      support@themeist.com
